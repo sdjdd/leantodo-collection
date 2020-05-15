@@ -1,0 +1,3 @@
+<view class="form-wrap">
+  <navigator url="../user/user" class="navigator user">账户登录</navigator>
+</view>

@@ -1,0 +1,23 @@
+.label {
+  color: #999;
+  width: 4.5em;
+}
+.account-info input {
+  font-size: 18px;
+  line-height: 100%;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.auth-data {
+  word-break: break-all;
+}
+.hint, .error {
+  display: block;
+  margin: 8px 0;
+  color: #888;
+  font-size: 14px;
+}
+.error {
+  color: #e64240;
+}

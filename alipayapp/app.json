@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/todos/todos",
+    "pages/setting/setting",
+    "pages/user/user"
+  ],
+  "window": {
+    "defaultTitle": "LeanTodo",
+    "titleBarColor": "#323239",
+    "backgroundColor": "#f2f2f2"
+  }
+}
