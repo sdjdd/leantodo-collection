@@ -1,4 +1,4 @@
-const adapter = require('@leancloud/platform-adapters-aliapp')
+const adapter = require('@leancloud/platform-adapters-alipay')
 const AV = require('leancloud-storage/live-query')
 
 AV.setAdapters(adapter)

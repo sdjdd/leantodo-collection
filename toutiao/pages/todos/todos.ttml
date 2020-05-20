@@ -1,0 +1,45 @@
+<view class="new-todo">
+  <input value="{{ draft }}" placeholder="添加一个任务" bindinput="handleChangeDraft" />
+  <button
+    tt:if="{{ draft !== '' }}"
+    class="add"
+    type="primary"
+    bindtap="handleAddTodo"
+  >添加</button>
+</view>
+
+<view class="todo-list">
+  <block tt:for="{{ todos }}" tt:for-item="todo">
+    <view class="todo">
+      <checkbox
+        checked="{{ todo.done }}"
+        data-id="{{ todo.objectId }}"
+        bindtap="handleChangeDone"
+      />
+      <view class="content" bindtap="handleEditTodo" data-id="{{ todo.objectId }}">
+        <input
+          tt:if="{{ todo.objectId === editingTodoId }}"
+          focus="{{ todo.objectId === editingTodoId }}"
+          value="{{ todo.content }}"
+          bindblur="handleFinishEdit"
+          data-id="{{ todo.objectId }}"
+        />
+        <text
+          class="{{ todo.done ? 'done' : '' }}"
+          tt:if="{{ todo.objectId !== editingTodoId }}"
+        >{{ todo.content }}</text>
+      </view>
+      
+    </view>
+  </block>
+</view>
+
+<view class="footer">
+  <!-- <navigator class="setting tappable" url="../setting/setting">设置</navigator> -->
+  <text class="status">{{ activeCount }} / {{ todos.length }}</text>
+  <text
+    class="remove-done tappable"
+    bindtap="handleRemoveDone"
+    tt:if="{{ activeCount !== todos.length }}"
+  >清除已完成</view>
+</view>

@@ -1,0 +1,27 @@
+.flex-wrap{
+  display: flex;
+  flex-direction: row;
+}
+
+.tappable:active {
+  opacity: .6;
+}
+
+.form-wrap {
+  border-top: 1px solid #eee;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.container {
+  padding: 4px 12px;
+}
+
+.input-wrap {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  margin: 0 -12px;
+  padding: 0 12px;
+  height: 46px;
+  line-height: 46px;
+}
