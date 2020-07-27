@@ -1,0 +1,48 @@
+<view class="new-todo">
+  <input
+    placeholder="添加一个任务"
+    value="{{ draft }}"
+    bindinput="handleChangeDraft"
+  />
+  <text
+    class="add tappable"
+    bindtap="handleAddTodo"
+    wx:if="{{ draft !== '' }}"
+  >添加</text>
+</view>
+
+<view class="todo-list">
+  <block wx:for="{{ todos }}" wx:for-item="todo">
+    <view class="todo">
+      <checkbox
+        checked="{{ todo.done }}"
+        data-id="{{ todo.objectId }}"
+        onChange="handleChangeDone"
+      />
+      <view class="content" onTap="handleEditTodo" data-id="{{ todo.objectId }}">
+        <input
+          wx:if="{{ todo.objectId === editingTodoId }}"
+          focus="{{ todo.objectId === editingTodoId }}"
+          value="{{ todo.content }}"
+          onBlur="handleFinishEdit"
+          data-id="{{ todo.objectId }}"
+        />
+        <text
+          class="{{ todo.done ? 'done' : '' }}"
+          wx:if="{{ todo.objectId !== editingTodoId }}"
+        >{{ todo.content }}</text>
+      </view>
+      
+    </view>
+  </block>
+</view>
+
+<view class="footer">
+  <!-- <navigator class="setting tappable" url="../setting/setting">设置</navigator> -->
+  <text class="status">{{ activeCount }} / {{ todos.length }}</text>
+  <text
+    class="remove-done tappable"
+    onTap="handleRemoveDone"
+    a:if="{{ activeCount !== todos.length }}"
+  >清除已完成</text>
+</view>
